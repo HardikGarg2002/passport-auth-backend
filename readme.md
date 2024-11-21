@@ -132,3 +132,6 @@ Install the type definitions for TypeScript development:
 
 ```bash
 npm install --save-dev @types/express @types/node`
+
+
+### Using helmet package to set headers to help secure application
