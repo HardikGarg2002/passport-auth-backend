@@ -135,3 +135,9 @@ npm install --save-dev @types/express @types/node`
 
 
 ### Using helmet package to set headers to help secure application
+
+## Remove Existing Git History:
+Use command
+```bash
+Remove-Item -Recurse -Force .git
+```
