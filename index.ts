@@ -26,6 +26,10 @@ app.use('*', (req, res) => {
     error: 'AUTH404: Could not find the page requested by you',
   });
 });
+app.use((err: any, req: Request, res: Response, _next: any) => {
+  console.error('Error occurred:', err);
+  res.status(500).json({ message: 'Internal Server Error' });
+});
 
 app.listen(port, () => {
   console.log('App listening on port environment/ service is ', port, environment, service);
