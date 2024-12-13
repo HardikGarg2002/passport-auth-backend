@@ -2,9 +2,12 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import dbutils from '@hardikgarg2002/mongodb_utils';
+import { initializePassport } from './passport-config.js';
 
 export default function createServer() {
   dbutils.initMongoDB();
+  initializePassport();
+  // console.log(process.env.MONGO_URI);
   const app = express().use(express.json()).use(cors()).use(helmet());
   return app;
 }
