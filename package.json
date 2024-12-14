@@ -1,10 +1,11 @@
 {
   "name": "backend_nodejs_starter",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "node --trace-warnings --experimental-strip-types --experimental-transform-types ./index.ts",
-    "dev": "nodemon --watch './**/*.ts' --exec node --trace-warnings --experimental-strip-types --experimental-transform-types ./index.ts",
+    "build": "tsc",
+    "start": "npm run build && node --env-file .env dist/index.js",
+    "dev": "nodemon --watch src/**/*.ts --exec ts-node --env-file=.env index.ts",
     "typecheck": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,27 +14,42 @@
   "description": "",
   "devDependencies": {
     "@eslint/js": "^9.14.0",
+    "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
-    "@types/node": "^22.9.0",
+    "@types/express-session": "^1.18.1",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/node": "^22.10.2",
+    "@types/passport": "^1.0.17",
+    "@types/passport-jwt": "^4.0.1",
+    "@types/passport-local": "^1.0.38",
     "@typescript-eslint/eslint-plugin": "^8.15.0",
     "@typescript-eslint/parser": "^8.15.0",
+    "bcrypt": "^5.1.1",
     "eslint": "^9.14.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "express-session": "^1.18.1",
     "globals": "^15.12.0",
     "nodemon": "^3.1.7",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0",
     "prettier": "^3.3.3",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.2",
     "typescript-eslint": "^8.13.0"
   },
   "dependencies": {
     "@hardikgarg2002/mongodb_utils": "^1.0.1",
+    "@hardikgarg2002/node-errorify": "^1.0.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
     "express-async-errors": "^3.1.1",
     "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.1",
+    "passport-jwt": "^4.0.1",
     "youch": "^3.3.4"
   }
 }
