@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:4002/api
+@signupEndpoint = /auth/signup
+
+# Signup API Test
+POST {{baseUrl}}{{signupEndpoint}}
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "password": "SecurePass123"
+}
+
+###
+
+# Missing Fields Test
+POST {{baseUrl}}{{signupEndpoint}}
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com"
+}
+
+###
+
+# Duplicate Email Test
+POST {{baseUrl}}{{signupEndpoint}}
+Content-Type: application/json
+
+{
+  "name": "Jane Doe",
+  "email": "john.doe@example.com",
+  "password": "AnotherPass456"
+}
