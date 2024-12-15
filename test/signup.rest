@@ -1,5 +1,8 @@
 @baseUrl = http://localhost:4002/api
 @signupEndpoint = /auth/signup
+@loginEndpoint = /auth/login
+@profileEndpoint = /auth/profile
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NWYyYjZiNmY2MTJiOTg5Y2FlNDEzZiIsImVtYWlsIjoiam9obi5kb2VAZXhhbXBsZS5jb20iLCJpYXQiOjE3MzQyOTMyMDksImV4cCI6MTczNDI5NjgwOX0.sRkBNJOsJHpzktQxOZadlYMweYHS3UqKtS80SsaheoU
 
 # Signup API Test
 POST {{baseUrl}}{{signupEndpoint}}
@@ -33,3 +36,32 @@ Content-Type: application/json
   "email": "john.doe@example.com",
   "password": "AnotherPass456"
 }
+
+
+
+### Signup Test
+POST {{baseUrl}}{{signupEndpoint}}
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "password": "SecurePass123"
+}
+
+###
+
+### Login Test
+POST {{baseUrl}}{{loginEndpoint}}
+Content-Type: application/json
+
+{
+  "email": "john.doe@example.com",
+  "password": "SecurePass123"
+}
+
+###
+
+### Get User Profile Test (Authorized)
+GET {{baseUrl}}{{profileEndpoint}}
+Authorization: Bearer {{token}}
