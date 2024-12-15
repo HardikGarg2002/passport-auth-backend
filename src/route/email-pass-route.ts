@@ -1,8 +1,8 @@
 import express from 'express';
 const router = express.Router();
 import { asyncHandler } from '@hardikgarg2002/node-errorify';
-import { emailPassSignUp, emailPassLogin, getUserProfile } from './handler.js';
-import { authenticateJWT } from './middleware.js';
+import { emailPassSignUp, emailPassLogin, getUserProfile } from '../handler/email-pass-handler';
+import { authenticateJWT } from '../middleware';
 
 // Signup route
 router.post('/signup', asyncHandler(emailPassSignUp));

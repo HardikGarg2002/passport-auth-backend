@@ -1,12 +1,11 @@
 import type { Request, Response, NextFunction } from 'express';
-import AuthService from './service.js';
 import bcrypt from 'bcrypt';
-import type { IAuthUser } from './user';
 import jwt from 'jsonwebtoken';
-import { ILoggedInUser } from './user';
+import AuthService from '../service';
+import { IAuthUser } from '../user';
+import { generateToken } from '../utils/generateToken';
 
 const authService = new AuthService();
-const JWT_SECRET = process.env.JWT_SECRET || 'your_jwt_secret';
 
 // Signup Handler
 export async function emailPassSignUp(req: Request, res: Response, _next: NextFunction) {
@@ -22,7 +21,7 @@ export async function emailPassSignUp(req: Request, res: Response, _next: NextFu
 
   const hashedPassword = await bcrypt.hash(password, 10);
   const newUser: Partial<IAuthUser> = { name, email, password: hashedPassword };
-  await authService.createUser(newUser);
+  await authService.create(newUser);
 
   res.status(201).json({ message: 'User registered successfully' });
 }
@@ -43,7 +42,7 @@ export async function emailPassLogin(req: Request, res: Response, _next: NextFun
     return res.status(401).json({ message: 'Invalid email or password' });
   }
 
-  const token = jwt.sign({ id: user.id, email: user.email }, JWT_SECRET, { expiresIn: '1h' });
+  const token = generateToken(user._id as string, user.email);
   res.status(200).json({ message: 'Login successful', token });
 }
 
