@@ -1,14 +1,8 @@
-import { ObjectId } from 'mongoose';
-
-export type IUser = {
-  id: string;
-  name: string;
-  email: string;
-  password: string;
-};
+// import { ObjectId, mongoose } from 'mongoose';
+import mongoose from 'mongoose';
 
 export type IAuthUser = {
-  _id?: ObjectId | string;
+  _id?: any;
   name: string;
   password: string;
   email: string;
@@ -24,8 +18,8 @@ export type IAuthUser = {
   last_login_at: Date;
   created_at: Date;
   updated_at: Date;
-  updated_by: ObjectId;
-  created_by: ObjectId;
+  updated_by: any;
+  created_by: any;
 };
 
 export type ILoggedInUser = {

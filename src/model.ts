@@ -28,9 +28,6 @@ const authUserSchema = new Schema<IAuthUser>({
     type: Boolean,
     default: false,
   },
-  role: {
-    type: Object,
-  },
 
   is_verified: {
     type: Boolean,
