@@ -8,7 +8,7 @@ const authUserSchema = new Schema<IAuthUser>({
   },
   password: {
     type: String,
-    select: false,
+    select: true,
     trim: true,
   },
   email: {
@@ -19,10 +19,6 @@ const authUserSchema = new Schema<IAuthUser>({
   mobile: {
     type: String,
     trim: true,
-  },
-  access_token: {
-    type: String,
-    select: false,
   },
   refresh_token: {
     type: String,
@@ -41,10 +37,6 @@ const authUserSchema = new Schema<IAuthUser>({
     default: false,
   },
   is_deleted: {
-    type: Boolean,
-    default: false,
-  },
-  is_logged_in: {
     type: Boolean,
     default: false,
   },

@@ -13,7 +13,6 @@ export type IAuthUser = {
   password: string;
   email: string;
   mobile: string;
-  access_token: string;
   refresh_token: string;
   is_active: boolean;
   role?: {
@@ -22,10 +21,16 @@ export type IAuthUser = {
   };
   is_verified: boolean;
   is_deleted: boolean;
-  is_logged_in: boolean;
   last_login_at: Date;
   created_at: Date;
   updated_at: Date;
   updated_by: ObjectId;
   created_by: ObjectId;
+};
+
+export type ILoggedInUser = {
+  id: string;
+  email: string;
+  iat: number;
+  exp: number;
 };
