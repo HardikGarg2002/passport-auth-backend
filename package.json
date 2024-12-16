@@ -43,12 +43,13 @@
     "@hardikgarg2002/mongodb_utils": "^1.0.1",
     "@hardikgarg2002/node-errorify": "^1.0.6",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.1",
     "express-async-errors": "^3.1.1",
     "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.1",
+    "passport-google-oauth20": "^2.0.0",
     "passport-jwt": "^4.0.1",
     "youch": "^3.3.4"
   }

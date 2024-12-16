@@ -1,7 +1,8 @@
 import type { Request, Response } from 'express';
 import dbutils from '@hardikgarg2002/mongodb_utils';
 import createServer from './src/app';
-import userRoutes from './src/route';
+import userRoutes from './src/route/email-pass-route';
+import googleRoutes from './src/route/google-route';
 
 const app = createServer();
 const port = process.env.PORT || 3000;
@@ -23,7 +24,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 app.use('/api/auth', userRoutes);
-
+app.use('/api/auth/google', googleRoutes);
 // default end point
 app.use('*', (req, res) => {
   res.status(404).send({
